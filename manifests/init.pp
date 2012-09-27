@@ -1,6 +1,7 @@
 class ufw {
   package { 'ufw':
-    ensure => present,
+    ensure   => present,
+    provider => 'apt',
   }
 
   Package['ufw'] -> Exec['ufw-default-deny'] -> Exec['ufw-enable']
